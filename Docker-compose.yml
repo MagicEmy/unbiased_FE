@@ -7,4 +7,4 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - /Users/emanuela/Desktop/unbiased_FE:/app
+    - /Users/emanuela/Desktop/unbiased_FE:/app
