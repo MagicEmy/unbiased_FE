@@ -27,13 +27,13 @@ function Create() {
       <h1>Create application</h1>
 	  <form onSubmit={e => {onSubmit(e)}}>
 	  <div className="ID1">
-	  	<input type="text" placeholder="Company name" onChange={e => setCompanyName(e.target.value)}/>
+	  	<input type="text" placeholder="Company name" onChange={e => setCompanyName(e.target.value)} required/>
 	  </div>
 	  <div className="ID2">
-	  	<input type="text" placeholder="Job title" onChange={e => setJobTitle(e.target.value)}/>
+	  	<input type="text" placeholder="Job title" onChange={e => setJobTitle(e.target.value)} required/>
 	  </div>
 	  <div className="ID3">
-	  <input type="text" placeholder="Email HR-manager" onChange={e => setCompanyEmail(e.target.value)}/>
+	  <input type="text" placeholder="Email HR-manager" onChange={e => setCompanyEmail(e.target.value)} required/>
 	  </div>
 	  <button type="submit" value="Submit">Submit</button>
 	  </form>

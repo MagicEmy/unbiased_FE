@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import logo from './assets/logo.png'
 import Create from './components/Create';
 import Apply from './components/Apply';
 
 function App() {
   return (
     <div>
-      <h1 className="App-header">UNBIASED</h1>
+      <img src={logo} className="logo"/>
     <BrowserRouter>
       <Routes>
         <Route path="/create" element={<Create/>}/>
