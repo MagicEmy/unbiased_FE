@@ -6,11 +6,11 @@ import Apply from './components/Apply';
 function App() {
   return (
     <div>
-      <h1>UNBIASED</h1>
+      <h1 className="App-header">UNBIASED</h1>
     <BrowserRouter>
       <Routes>
         <Route path="/create" element={<Create/>}/>
-        <Route path="/apply" element={<Apply/>}/>
+        <Route path="/apply/:jobToken" element={<Apply/>}/>
       </Routes>
     </BrowserRouter>
     </div>
