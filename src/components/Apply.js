@@ -30,16 +30,19 @@ function Apply() {
 		}
 	};
 	return (
-    <div className="App">
+    <div className="inner-container">
      <h1>Apply</h1>
 	 <h2>Company name</h2>
 	 <h2>Job title</h2>
 	 <form onSubmit={e => {onSubmit(e)}}>
-		<div className="ID1_applicant">
-			<input type="text" placeholder="Full name" onChange={e => setName(e.target.value)}/>
+	 	<div className="ID1_applicant input-containe">
+			<label>Full name</label>
+			<input className="input-place" type="text" onChange={e => setName(e.target.value)} required />
+			{/* <input type="text" placeholder="Full name" onChange={e => setName(e.target.value)}/> */}
 		</div>
-		<div className="ID2_applicant">
-			<input type="text" placeholder="E-mail" onChange={e => setEmail(e.target.value)}/>
+		<div className="ID2_applicant input-containe">
+		<label>E-mail</label>
+			<input className="input-place" type="text" onChange={e => setEmail(e.target.value)}/>
 		</div>
 		<input type="file" accept="application/pdf" onChange={e =>setCv(e.target.files[0])}/>
 		<button type="submit" value="Submit">Submit</button>
