@@ -67,12 +67,14 @@
 /* ##### */
 
 .inner-contaOne {
-	background: #FFE7DB none repeat scroll 0 0;
+	background: #FFF9F3 none repeat scroll 0 0;
 	border-bottom-left-radius: 20px;
 	border-top-right-radius: 20px;
-	margin: 150px auto;
+  border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	margin: 70px auto;
 	max-width: 500px;
-	 padding: 50px; 
+	padding: 50px; 
 	text-align: center;
 	transition: all 300ms linear 0s;
   }
@@ -81,7 +83,7 @@
 	background: #f8d9d5 none repeat scroll 0 0;
 	border-bottom-left-radius: 40px;
 	border-top-right-radius: 40px;
-	margin: 100px auto;
+	margin: 60px auto;
 	max-width: 500px;
 	padding: 50px;
 	text-align: center;
