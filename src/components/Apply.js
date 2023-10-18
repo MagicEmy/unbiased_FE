@@ -71,7 +71,7 @@ function Apply() {
 			email: email,
 			cv: cv
 		}
-		axios.post(`https://localhost:3333/apply`, { cvUpload }) // adapt url based on backend
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { cvUpload })
 		  		.then(res => {
 		    		console.log(res)
 		   			console.log(res.data)
