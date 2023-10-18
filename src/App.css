@@ -12,7 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+ /* 	// for now don't set to false if upload fails - form  */
 .App-header {
   background-color: #282c34;
   /* min-height: 10vh; */
@@ -50,6 +50,7 @@
   background: #fff2e6;
   width: auto;
   height: 1000px;
+  height: 3000px;
 }
 
 @keyframes App-logo-spin {
@@ -160,16 +161,7 @@
   input:focus::-moz-placeholder {
 	  color:transparent;
   }
-  /* .input-containe::after {
-	background: #9D141E none repeat scroll 0 0;
-	bottom: 0;
-	content: "";
-	height: 2px;
-	left: 8px;
-	position: absolute;
-	transition: all 300ms ease 0s;
-	width: 0;
-  } */
+
   .input-containe.active::after {
 	width: 100%;
   }
