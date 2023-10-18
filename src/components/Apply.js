@@ -30,6 +30,9 @@ function Apply() {
 			setJobTitle(res.title)
 			setCompanyName(res.name)
 		})
+		.catch(err => {
+		setIsSuccess(false)
+	})
 	});
 
 	function onSubmit(e){
