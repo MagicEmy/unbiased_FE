@@ -34,7 +34,7 @@ function Create() {
   return (
     <div className="inner-contaOne">
 	<div className="inner-container">
-      <h1>Unbiased Interface for Hiring Managers</h1>
+	<h2 className="apply-header2">Unbiased Interface for Hiring Managers</h2>
 	  <form onSubmit={e => {onSubmit(e)}}>
 	  <div className={`ID1 input-containe ${isCompanyNameActive ? 'active' : ''}`}>
 	  <input
