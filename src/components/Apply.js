@@ -49,9 +49,8 @@ function Apply() {
 	return (
 		<div className="inner-contaOne">
 		<div className="inner-container">
-		<h1 className="apply-header">Apply</h1>
-		<h2 className="apply-header">{companyName}</h2>
 		<h2 className="apply-header">{jobTitle}</h2>
+		<h2 className="apply-header2">{companyName}</h2>
 		<form onSubmit={e => {onSubmit(e)}}>
 		  <div className={`ID1_applicant input-containe ${isNameActive ? 'active' : ''}`}>
 			<input

@@ -15,6 +15,7 @@ function App() {
         <Route path="/apply/:jobToken" element={<Apply/>}/>
       </Routes>
     </BrowserRouter>
+    <div className="bgfooter"></div>
     </div>
     </div>
   );
