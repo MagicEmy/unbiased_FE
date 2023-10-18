@@ -4,7 +4,8 @@ import {useParams} from 'react-router-dom'
 import axios from 'axios';
 
 function Apply() {
-	  
+	
+	const [isSuccess, setIsSuccess] = useState(true) //set to false to see cv form
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [cv, setCv] = useState(null)
@@ -28,7 +29,6 @@ function Apply() {
 	const [isCertificatesActive, setIsCertificatesActive] = useState(false)
 	const [isEducationActive, setIsEducationActive] = useState(false)
 	const [isAchivementsActive, setIsAchivementsActive] = useState(false)
-	const [isSuccess, setIsSuccess] = useState(false)
 
 	let {jobToken} = useParams()
 	useEffect(() => {
@@ -41,15 +41,12 @@ function Apply() {
 		})
 		.catch(err => {
 		setIsSuccess(false)
-	})
-	.catch(err => {
-	setIsSuccess(false)	// for now don't set to false if upload fails - form 
-})
+		})
 	});
 
 	function onFormSubmit(e){
 		e.preventDefault();
-	if (name == "" || email == "" || cv == null)
+	if (name === "" || email === "" || cv === null)
 	{
 		console.log("please fill in all the fields")
 	}
@@ -61,20 +58,20 @@ function Apply() {
 			skills: skills,
 			certificates: certificates,
 			education: education,
-
+			achivements: achivements
 		}
 		axios.post(`https://localhost:3333/apply/form`, { formUpload })
-				.then(res => {
-					console.log(res)
-					console.log(res.data)
-				})
-				.catch(err => {
-				})
-		};
+			.then(res => {
+				console.log(res)
+				console.log(res.data)
+			})
+			.catch(err => {
+			})
+	};
 
 	function onSubmit(e){
 		e.preventDefault();
-	if (name == "" || email == "" || cv == null)
+	if (name === "" || email === "" || cv === null)
 	{
 		console.log("please fill in all the fields")
 	}
@@ -131,7 +128,7 @@ function Apply() {
 		</form>
 	</div>
 		{isSuccess ? <h1></h1> :
-		<div className="inner-container">
+		<div className="inner-container"> 
 			<form onSubmit={e => {onFormSubmit(e)}}>
 				<div className={`ID3_applicant input-containe ${isNickNameActive ? 'active' : ''}`}>
 					<input
