@@ -7,21 +7,27 @@ function Apply() {
 	  
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
+	const [cv, setCv] = useState(null)
 	const [nickName, setNickName] = useState("")
 	const [profile, setProfile] = useState("")
-	const [cv, setCv] = useState(null)
+	const [career, setCareer] = useState("")
+	const [work, setWork] = useState(false)
+	const [skills, setSkills] = useState(false)
+	const [certificates, setCertificates] = useState(false)
+	const [education, setEducation] = useState(false)
+	const [achivements, setAchivements] = useState(false)
 	const [jobTitle, setJobTitle] = useState("Job title")
 	const [companyName, setCompanyName] = useState("Company name")
 	const [isNameActive, setIsNameActive] = useState(false)
 	const [isEmailActive, setIsEmailActive] = useState(false)
-	const [isNickName, setIsNickName] = useState(false)
-	const [isProfile, setIsProfile] = useState(false)
-	const [isCareer, setIsCareer] = useState(false)
-	const [isWork, setIsWork] = useState(false)
-	const [isSkills, setIsSkills] = useState(false)
-	const [isCertificates, setIsCertificates] = useState(false)
-	const [isEducation, setIsEducation] = useState(false)
-	const [isAchivements, setIsAchivements] = useState(false)
+	const [isNickNameActive, setIsNickNameActive] = useState(false)
+	const [isProfileActive, setIsProfileActive] = useState(false)
+	const [isCareerActive, setIsCareerActive] = useState(false)
+	const [isWorkActive, setIsWorkActive] = useState(false)
+	const [isSkillsActive, setIsSkillsActive] = useState(false)
+	const [isCertificatesActive, setIsCertificatesActive] = useState(false)
+	const [isEducationActive, setIsEducationActive] = useState(false)
+	const [isAchivementsActive, setIsAchivementsActive] = useState(false)
 	const [isSuccess, setIsSuccess] = useState(false)
 
 	let {jobToken} = useParams()
@@ -41,8 +47,20 @@ function Apply() {
 	});
 
 	function onFormSubmit(e){
+		e.preventDefault();
+	if (name == "" || email == "" || cv == null)
+	{
+		console.log("please fill in all the fields")
+	}
 		let formUpload={
+			nickName: nickName,
 			profile: profile,
+			career: career,
+			work: work,
+			skills: skills,
+			certificates: certificates,
+			education: education,
+
 		}
 		axios.post(`https://localhost:3333/apply/form`, { formUpload })
 				.then(res => {
@@ -113,18 +131,96 @@ function Apply() {
 	</div>
 		{isSuccess ? <h1></h1> :
 		<div className="inner-container">
-		<form>
-			<div className={`ID3_applicant input-containe ${isNickName ? 'active' : ''}`}>
-				<input
-				className="input-place"
-				type="text"
-				onFocus={() => setIsNickName(true)}
-				onBlur={() => setIsNickName(false)}
-				onChange={(e) => setNickName(e.target.value)}
-				/>
-				<label>Nick name</label>
-			</div>
-		</form>
+			<form onSubmit={e => {onFormSubmit(e)}}>
+				<div className={`ID3_applicant input-containe ${isNickNameActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsNickNameActive(true)}
+					onBlur={() => setIsNickNameActive(false)}
+					onChange={(e) => setNickName(e.target.value)}
+					required
+					/>
+					<label>Nick name</label>
+				</div>
+				<div className={`ID4_applicant input-containe ${isProfileActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsProfileActive(true)}
+					onBlur={() => setIsProfileActive(false)}
+					onChange={(e) => setProfile(e.target.value)}
+					required
+					/>
+					<label>Profile - Personal description</label>
+				</div>
+				<div className={`ID5_applicant input-containe ${isCareerActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsCareerActive(true)}
+					onBlur={() => setIsCareerActive(false)}
+					onChange={(e) => setCareer(e.target.value)}
+					required
+					/>
+					<label>Career Profile</label>
+				</div>
+				<div className={`ID6_applicant input-containe ${isWorkActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsWorkActive(true)}
+					onBlur={() => setIsWorkActive(false)}
+					onChange={(e) => setWork(e.target.value)}
+					required
+					/>
+					<label>Work Experience</label>
+				</div>
+				<div className={`ID7_applicant input-containe ${isSkillsActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsSkillsActive(true)}
+					onBlur={() => setIsSkillsActive(false)}
+					onChange={(e) => setSkills(e.target.value)}
+					required
+					/>
+					<label>Skills</label>
+				</div>
+				<div className={`ID8_applicant input-containe ${isCertificatesActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsCertificatesActive(true)}
+					onBlur={() => setIsCertificatesActive(false)}
+					onChange={(e) => setCertificates(e.target.value)}
+					required
+					/>
+					<label>Certificates</label>
+				</div>
+				<div className={`ID9_applicant input-containe ${isEducationActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsEducationActive(true)}
+					onBlur={() => setIsEducationActive(false)}
+					onChange={(e) => setEducation(e.target.value)}
+					required
+					/>
+					<label>Education</label>
+				</div>
+				<div className={`ID10_applicant input-containe ${isAchivementsActive ? 'active' : ''}`}>
+					<input
+					className="input-place"
+					type="text"
+					onFocus={() => setIsAchivementsActive(true)}
+					onBlur={() => setIsAchivementsActive(false)}
+					onChange={(e) => setAchivements(e.target.value)}
+					required
+					/>
+					<label>Achivements</label>
+				</div>
+			</form>
 		</div>}
 	 </div>
   );
