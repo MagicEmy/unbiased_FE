@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function Apply() {
 	
-	const [isSuccess, setIsSuccess] = useState(true) //set to false to see cv form
+	const [isSuccess, setIsSuccess] = useState(true)
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [cv, setCv] = useState(null)
@@ -40,7 +40,7 @@ function Apply() {
 			setCompanyName(res.name) // adapt name to match backend
 		})
 		.catch(err => {
-		setIsSuccess(false)
+		setIsSuccess(false) // set to (false) to show the form, else set to (true) to hide the form
 		})
 	});
 
