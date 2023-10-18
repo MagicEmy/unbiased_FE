@@ -27,8 +27,9 @@ function Apply() {
 		console.log(jobToken)
 		axios.get(`api/get/${jobToken}`)
 		.then(res => {
-			setJobTitle(res.title)
-			setCompanyName(res.name)
+			console.log(res)
+			setJobTitle(res.title) // adapt name to match backend
+			setCompanyName(res.name) // adapt name to match backend
 		})
 		.catch(err => {
 		setIsSuccess(false)
@@ -52,7 +53,7 @@ function Apply() {
 			email: email,
 			cv: cv
 		}
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { cvUpload })
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { cvUpload }) // adapt url based on backend
 		  		.then(res => {
 		    		console.log(res)
 		   			console.log(res.data)

@@ -19,7 +19,7 @@ function Create() {
 			jobTitle: jobTitle,
 			companyEmail: companyEmail,
 		};
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost })
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost }) // adapt url based on backend
       		.then(res => {
         		console.log(res)
        			console.log(res.data)
