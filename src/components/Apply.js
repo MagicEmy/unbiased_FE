@@ -30,10 +30,12 @@ function Apply() {
 	const [isEducationActive, setIsEducationActive] = useState(false)
 	const [isAchivementsActive, setIsAchivementsActive] = useState(false)
 
+	const domainAdd = "https://localhost:3000";
+	const pageNameApply = "apply";
 	let {jobToken} = useParams()
 	useEffect(() => {
 		console.log(jobToken)
-		axios.get(`https://localhost:3000/apply/${jobToken}`)
+		axios.get(`${domainAdd}/${pageNameApply}/${jobToken}`)
 		.then(res => {
 			console.log(res)
 			setJobTitle(res.title) // adapt name to match backend
@@ -60,7 +62,7 @@ function Apply() {
 			education: education,
 			achivements: achivements
 		}
-		axios.post(`https://localhost:3000/apply/form`, { formUpload })
+		axios.post(`${domainAdd}/${pageNameApply}/${jobToken}/form`, { formUpload })
 			.then(res => {
 				console.log(res)
 				console.log(res.data)
@@ -86,7 +88,7 @@ function Apply() {
 			email: email,
 			cv: cv
 		}
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { cvUpload })
+		axios.post(`${domainAdd}/${pageNameApply}/${jobToken}/form`, { cvUpload })
 		  		.then(res => {
 		    		console.log(res)
 		   			console.log(res.data)
@@ -141,7 +143,7 @@ function Apply() {
 		  <button className="submit-button" type="submit">Submit</button>
 		</form>
 	</div>
-		{isSuccess ? <h1></h1> :
+		{isSuccess ? <h1 aria-label="Success message"> Operation Successful </h1> :
 		<div className="inner-container"> 
 			<form onSubmit={e => {onFormSubmit(e)}}>
 				<div className={`ID3_applicant input-containe ${isNickNameActive ? 'active' : ''}`}>
@@ -233,7 +235,7 @@ function Apply() {
 					<label>Achivements</label>
 				</div>
 			</form>
-		</div>}
+		</div> }
 	 </div>
   );
 }
