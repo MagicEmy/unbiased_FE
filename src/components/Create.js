@@ -19,7 +19,7 @@ function Create() {
 			jobTitle: jobTitle,
 			companyEmail: companyEmail,
 		};
-		axios.post(`https://localhost:3333/hrmanager`, { jobPost })
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost })
       		.then(res => {
         		console.log(res)
        			console.log(res.data)
@@ -80,4 +80,3 @@ function Create() {
 export default Create;
 
 // {} []
-
