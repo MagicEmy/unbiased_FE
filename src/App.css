@@ -46,6 +46,10 @@
 .bglogo {
   background: #fff2e6;
 }
+.bgfooter {
+  background: #fff2e6;
+  height: 30px;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -60,9 +64,18 @@
 	font-size: 36px; /* Adjust the font size as needed */
 	color: #5c374c; /*Set the text color*/
 	text-align: center; /* Center the text */
-	margin-bottom: 20px; /* Add some space at the bottom */
+	margin-bottom: 8px; /* Add some space at the bottom */
 	font-family: 'Arial';
   }
+
+.apply-header2 {
+    font-size: 25px; /* Adjust the font size as needed */
+    color: #5c374c; /*Set the text color*/
+    text-align: center; /* Center the text */
+    margin-bottom: 12
+    px; /* Add some space at the bottom */
+    font-family: 'Arial';
+    }
 
 /* ##### */
 
@@ -83,9 +96,9 @@
 	background: #f8d9d5 none repeat scroll 0 0;
 	border-bottom-left-radius: 40px;
 	border-top-right-radius: 40px;
-	margin: 60px auto;
+	margin: 0px auto;
 	max-width: 500px;
-	padding: 50px;
+	padding: 20px 50px;
 	text-align: center;
 	transition: all 300ms linear 0s;
   }
