@@ -3,9 +3,11 @@ import {useState} from 'react'
 import axios from 'axios';
 
 function Create() {
-	const[companyName, setCompanyName]=useState("");
+	const[companyName, setCompanyName]=useState("")
 	const[jobTitle, setJobTitle]=useState("");
-	const[companyEmail, setCompanyEmail]=useState("");
+	const[companyEmail, setCompanyEmail]=useState("")
+	const [isSuccess, setIsSuccess] = useState(true)
+
 
 	function onSubmit(e){
 		e.preventDefault();
@@ -14,11 +16,15 @@ function Create() {
 			jobTitle: jobTitle,
 			companyEmail: companyEmail,
 		};
-	// 	axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost })
-    //   		.then(res => {
-    //     		console.log(res);
-    //    			console.log(res.data);
-    //   });
+		axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost })
+      		.then(res => {
+        		console.log(res)
+       			console.log(res.data)
+			})
+			.catch(err => {
+			setIsSuccess(false)
+		})
+
 		console.log(jobPost);
 	}
 
@@ -37,6 +43,7 @@ function Create() {
 	  </div>
 	  <button type="submit" value="Submit">Submit</button>
 	  </form>
+	  {isSuccess ? <h1></h1> : <hi>Something went wrong</hi>}
     </div>
   );
 }
