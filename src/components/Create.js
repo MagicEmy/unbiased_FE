@@ -75,8 +75,8 @@ function Create() {
 			</div>
 	  <button className="submit-button" type="submit">Submit</button>
 	  </form>
-	  {isSuccess ? <h1></h1> : <hi>Something went wrong</hi>}
-    </div>
+	  {isSuccess ? <h1></h1> : <h1>Something went wrong</h1>}
+    </div>	
 	</div>
   );
 }

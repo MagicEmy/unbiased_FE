@@ -123,7 +123,21 @@ function Apply() {
 			/>
 			<label>E-mail</label>
 		  </div>
-		  <input type="file" accept="application/pdf" onChange={(e) => setCv(e.target.files[0])} required />
+		  <div className="file-input-container">
+    <input
+        type="file"
+        id="file-input"
+        accept="application/pdf"
+        onChange={(e) => setCv(e.target.files[0])}
+        required
+        className="hidden-input"
+    />
+    <label htmlFor="file-input" className="file-label">
+        Choose File
+    </label>
+</div>
+
+		  <input type="file" accept="application/pdf" onChange={(e) => setCv(e.target.files[0])} required className="hidden-input" />
 		  <button className="submit-button" type="submit">Submit</button>
 		</form>
 	</div>

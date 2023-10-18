@@ -130,7 +130,7 @@
 	width: 100%;
   }
   .input-containe label {
-	color: #9D141E;
+	color: #5c374c;
 	margin: 0px 15px;
 	font-size: 16px;
 	left: -1px;
@@ -150,7 +150,7 @@
 	top: 0;
   }
   ::-moz-placeholder { /* Firefox 19+ */
-		color: #9D141E;
+		color: #5c374c;
 	  font-size: 16px;
 	  font-weight: 600;
 	  opacity: 0.6;
@@ -172,7 +172,7 @@
   }
   input[type="submit"] {
 	background-color: #ffffff;
-	border: 2px solid #9D141E;
+	border: 2px solid #5c374c;
 	border-radius: 5px;
 	color: #cb69ee;
 	margin-top: 20px;
@@ -180,12 +180,44 @@
 	width: 160px;
   }
 
-  .submit-button {
+  .submit-button, .file-label {
 	background-color: #ffffff;
-	border: 2px solid #9D141E;
+	border: 2px solid #5c374c;
 	border-radius: 20px;
-	color: #9D141E;
+	color: #5c374c;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
 	margin-top: 20px;
 	padding: 7px;
 	width: 160px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+/* .file-label {
+    background-color: #ffffff;
+    border: 2px solid #5c374c;
+	border-radius: 20px;
+    color: #5c374c;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+} */
+
+/* Style when hovering over the button */
+.file-label:hover {
+    background-color: #5c374c;
+    color: #ffffff;
+}
+.submit-button:hover {
+    background-color: #5c374c;
+    color: #ffffff;
+}
+
+/* Style when the file input is focused (clicked) */
+.hidden-input:focus + .file-label {
+    outline: 2px solid #5c374c;
 }
