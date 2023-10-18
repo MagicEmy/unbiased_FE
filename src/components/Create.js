@@ -16,7 +16,7 @@ function Create() {
 			jobTitle: jobTitle,
 			companyEmail: companyEmail,
 		};
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { jobPost })
+		axios.post(`https://localhost:3333/hrmanager`, { jobPost })
       		.then(res => {
         		console.log(res)
        			console.log(res.data)

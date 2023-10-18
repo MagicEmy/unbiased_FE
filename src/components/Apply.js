@@ -7,30 +7,48 @@ function Apply() {
 	  
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
+	const [nickName, setNickName] = useState("")
+	const [profile, setProfile] = useState("")
 	const [cv, setCv] = useState(null)
 	const [jobTitle, setJobTitle] = useState("Job title")
 	const [companyName, setCompanyName] = useState("Company name")
 	const [isNameActive, setIsNameActive] = useState(false)
 	const [isEmailActive, setIsEmailActive] = useState(false)
-	const [isNickName, setisNickName] = useState(false)
-	const [isProfile, setisProfile] = useState(false)
-	const [isCareer, setisCareer] = useState(false)
-	const [isWork, setisWork] = useState(false)
-	const [isSkills, setisSkills] = useState(false)
-	const [isCertificates, setisCertificates] = useState(false)
-	const [isEducation, setisEducation] = useState(false)
-	const [isAchivements, setisAchivements] = useState(false)
+	const [isNickName, setIsNickName] = useState(false)
+	const [isProfile, setIsProfile] = useState(false)
+	const [isCareer, setIsCareer] = useState(false)
+	const [isWork, setIsWork] = useState(false)
+	const [isSkills, setIsSkills] = useState(false)
+	const [isCertificates, setIsCertificates] = useState(false)
+	const [isEducation, setIsEducation] = useState(false)
+	const [isAchivements, setIsAchivements] = useState(false)
 	const [isSuccess, setIsSuccess] = useState(false)
 
 	let {jobToken} = useParams()
 	useEffect(() => {
 		console.log(jobToken)
-		axios.get(`api/get/${jobToken}`)
+		axios.get(`https://localhost:3333/apply/${jobToken}`)
 		.then(res => {
 			setJobTitle(res.title)
 			setCompanyName(res.name)
 		})
+	.catch(err => {
+	setIsSuccess(false)	// for now don't set to false if upload fails - form 
+})
 	});
+
+	function onFormSubmit(e){
+		let formUpload={
+			profile: profile,
+		}
+		axios.post(`https://localhost:3333/apply/form`, { formUpload })
+				.then(res => {
+					console.log(res)
+					console.log(res.data)
+				})
+				.catch(err => {
+				})
+		};
 
 	function onSubmit(e){
 		e.preventDefault();
@@ -49,7 +67,7 @@ function Apply() {
 			email: email,
 			cv: cv
 		}
-		axios.post(`https://jsonplaceholder.typicode.com/users`, { cvUpload })
+		axios.post(`https://localhost:3333/apply`, { cvUpload })
 		  		.then(res => {
 		    		console.log(res)
 		   			console.log(res.data)
@@ -91,17 +109,15 @@ function Apply() {
 		</form>
 	</div>
 		{isSuccess ? <h1></h1> :
-		
 		<div className="inner-container">
 		<form>
-			<div className={`ID1_applicant input-containe ${isNameActive ? 'active' : ''}`}>
+			<div className={`ID3_applicant input-containe ${isNickName ? 'active' : ''}`}>
 				<input
 				className="input-place"
 				type="text"
-				onFocus={() => setIsNameActive(true)}
-				onBlur={() => setIsNameActive(false)}
-				onChange={(e) => setName(e.target.value)}
-				required
+				onFocus={() => setIsNickName(true)}
+				onBlur={() => setIsNickName(false)}
+				onChange={(e) => setNickName(e.target.value)}
 				/>
 				<label>Nick name</label>
 			</div>
