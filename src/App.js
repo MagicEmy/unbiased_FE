@@ -7,6 +7,7 @@ import Apply from './components/Apply';
 function App() {
   return (
     <div>
+      <div className="bglogo">
       <img src={logo} className="logo"/>
     <BrowserRouter>
       <Routes>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/apply/:jobToken" element={<Apply/>}/>
       </Routes>
     </BrowserRouter>
+    </div>
     </div>
   );
 }

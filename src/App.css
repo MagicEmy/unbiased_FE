@@ -37,10 +37,14 @@
 */
 
 .logo {
-  /* margin: 5px 15px; */
-  margin: 5px 250px;
+  margin: 5px 15px;
+  /* margin: 5px 250px; */
   height: 70px;
   width: 250px;
+}
+
+.bglogo {
+  background: #fff2e6;
 }
 
 @keyframes App-logo-spin {
@@ -68,7 +72,7 @@
 	border-top-right-radius: 20px;
 	margin: 150px auto;
 	max-width: 500px;
-	padding: 50px;
+	 padding: 50px; 
 	text-align: center;
 	transition: all 300ms linear 0s;
   }
