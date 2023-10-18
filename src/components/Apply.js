@@ -32,6 +32,9 @@ function Apply() {
 			setJobTitle(res.title)
 			setCompanyName(res.name)
 		})
+		.catch(err => {
+		setIsSuccess(false)
+	})
 	.catch(err => {
 	setIsSuccess(false)	// for now don't set to false if upload fails - form 
 })
