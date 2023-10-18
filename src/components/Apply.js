@@ -76,7 +76,8 @@ function Apply() {
 			<label>E-mail</label>
 		  </div>
 		  <input type="file" accept="application/pdf" onChange={(e) => setCv(e.target.files[0])} required />
-		  <button type="submit">Submit</button>
+		  {/* <button type="submit">Submit</button> */}
+		  <button className="submit-button" type="submit">Submit</button>
 		</form>
 	  </div>
 	  </div>
