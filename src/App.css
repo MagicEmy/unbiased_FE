@@ -173,9 +173,8 @@
   input[type="submit"] {
 	background-color: #ffffff;
 	border: 2px solid #5c374c;
-	border-radius: 5px;
-	color: #cb69ee;
 	margin-top: 20px;
+	padding: 10px 20px;
 	padding: 7px;
 	width: 160px;
   }

@@ -30,12 +30,13 @@ function Apply() {
 	const [isEducationActive, setIsEducationActive] = useState(false)
 	const [isAchivementsActive, setIsAchivementsActive] = useState(false)
 
-	const domainAdd = "https://localhost:3000";
+	const domainAdd = "https://localhost:4000";
 	const pageNameApply = "apply";
+	
 	let {jobToken} = useParams()
 	useEffect(() => {
 		console.log(jobToken)
-		axios.get(`${domainAdd}/${pageNameApply}/${jobToken}`)
+		axios.get(`${domainAdd}/${pageNameApply}/${jobToken}`, { jobToken })
 		.then(res => {
 			console.log(res)
 			setJobTitle(res.title) // adapt name to match backend
@@ -62,7 +63,7 @@ function Apply() {
 			education: education,
 			achivements: achivements
 		}
-		axios.post(`${domainAdd}/${pageNameApply}/${jobToken}/form`, { formUpload })
+		axios.post(`${domainAdd}/${pageNameApply}/form`, {jobToken}, { formUpload })
 			.then(res => {
 				console.log(res)
 				console.log(res.data)
@@ -88,7 +89,7 @@ function Apply() {
 			email: email,
 			cv: cv
 		}
-		axios.post(`${domainAdd}/${pageNameApply}/${jobToken}/form`, { cvUpload })
+		axios.post(`${domainAdd}/${pageNameApply}/form`, {jobToken}, { cvUpload })
 		  		.then(res => {
 		    		console.log(res)
 		   			console.log(res.data)
@@ -124,7 +125,7 @@ function Apply() {
 			  required
 			/>
 			<label>E-mail</label>
-		  </div>
+			</div>
 		  <div className="file-input-container">
     <input
         type="file"
@@ -133,17 +134,15 @@ function Apply() {
         onChange={(e) => setCv(e.target.files[0])}
         required
         className="hidden-input"
-    />
-    <label htmlFor="file-input" className="file-label">
-        Choose File
-    </label>
-</div>
+    	/>
+    	<label htmlFor="file-input" className="file-label">Choose File</label>
+		</div>
 
 		  <input type="file" accept="application/pdf" onChange={(e) => setCv(e.target.files[0])} required className="hidden-input" />
 		  <button className="submit-button" type="submit">Submit</button>
 		</form>
 	</div>
-		{isSuccess ? <h1 aria-label="Success message"> Operation Successful </h1> :
+	{isSuccess ? <h1 aria-label="Success message">  </h1> :
 		<div className="inner-container"> 
 			<form onSubmit={e => {onFormSubmit(e)}}>
 				<div className={`ID3_applicant input-containe ${isNickNameActive ? 'active' : ''}`}>
@@ -235,7 +234,7 @@ function Apply() {
 					<label>Achivements</label>
 				</div>
 			</form>
-		</div> }
+		</div>}
 	 </div>
   );
 }
